@@ -1,0 +1,10 @@
+<h2>It`s home component</h2>
+
+<p [class.blue]="isBlue">text from interpolation: {{ interpolation }}</p>
+<button (click)="toggleColor()">change color</button>
+
+<p [style.color]="isBlue ? 'blue' : 'green'">some text</p>
+
+<p #userName >user name</p>
+
+<p>{{userName.textContent}}</p>
