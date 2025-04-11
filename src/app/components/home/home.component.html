@@ -3,8 +3,8 @@
 <p [class.blue]="isBlue">text from interpolation: {{ interpolation }}</p>
 <button (click)="toggleColor()">change color</button>
 
-<p [style.color]="isBlue ? 'blue' : 'green'">some text</p>
-
-<p #userName >user name</p>
-
-<p>{{userName.textContent}}</p>
+<br/>
+<img ngSrc="{{ imageFile }}" alt="" width="300" height="300" />
+<br/>
+<button (click)="prevImage()" >prev</button>
+<button (click)="nextImage()" >next</button>
