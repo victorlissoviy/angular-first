@@ -4,7 +4,7 @@
 <button (click)="toggleColor()">change color</button>
 
 <br/>
-<img ngSrc="{{ imageFile }}" alt="" width="300" height="300" />
+<img [ngSrc]="imageFile" alt="" width="300" height="300" />
 <br/>
 <button (click)="prevImage()" >prev</button>
 <button (click)="nextImage()" >next</button>

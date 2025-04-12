@@ -14,7 +14,7 @@ export class HomeComponent {
   interpolation: string = "some text";
 
   /**
-   * Масив картинок в public
+   * Array of pictures in public folder.
    */
   images: string[] = [
     "/image-53594.jpg",
@@ -23,12 +23,12 @@ export class HomeComponent {
   ];
 
   /**
-   * Індекс поточної картинки
+   * Index of current picture
    */
   imageIndex: number = 0;
 
   /**
-   * Поточна картинка.
+   * Current picture.
    */
   imageFile: string = this.images[0];
 
@@ -37,7 +37,7 @@ export class HomeComponent {
   }
 
   /**
-   * Зміна до попередньої картинки
+   * Change to previous picture
    */
   prevImage() {
     this.imageIndex--;
@@ -48,7 +48,7 @@ export class HomeComponent {
   }
 
   /**
-   * Зміна до наступної картинки
+   * Change to next picture
    */
   nextImage() {
     this.imageIndex++;
@@ -59,13 +59,11 @@ export class HomeComponent {
   }
 
   /**
-   * Реакція на натискання клавіатури
-   * @param {KeyboardEvent} event подія натискання
+   * Reaction on push keyboard button
+   * @param {KeyboardEvent} event push event
    */
   @HostListener('window:keydown', ['$event'])
   keySwitchImage(event: KeyboardEvent) {
-    console.log(event.key);
-
     if (event.key === 'ArrowLeft') {
       this.prevImage();
     } else if (event.key === 'ArrowRight') {
