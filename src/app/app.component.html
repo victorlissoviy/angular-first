@@ -1,2 +1,48 @@
 <h1>Hello world</h1>
 
+<div *ngIf="isAdmin">
+  Admin true
+</div>
+
+<div *ngIf="!isAdmin">
+  Admin false
+</div>
+
+<button (click)="changeAdminStatus()">Change admin</button>
+
+<ul>
+  <li *ngFor="let user of users;index as i">
+    <div>
+      <p>№: {{ i }} {{ user.username }} {{ user.age }}</p>
+    </div>
+  </li>
+</ul>
+
+<ul>
+  <ng-container *ngFor="let user of users">
+    <li>{{ user.username }}</li>
+  </ng-container>
+</ul>
+
+<p>slice pipe:</p>
+<ul>
+  <ng-container *ngFor="let user of users | slice : 0 :1">
+    <li>{{ user.username }}</li>
+  </ng-container>
+</ul>
+
+<div [ngSwitch]="car">
+  <p *ngSwitchCase="'Audi'">The Audi block</p>
+  <p *ngSwitchCase="'ZAZ'">The ZAZ block</p>
+  <p *ngSwitchCase="'BMW'">The BMW block</p>
+  <p *ngSwitchDefault>Car not found</p>
+</div>
+
+<div [style]="style">Some text</div>
+<div [style]="{color: 5 < 10 ? 'red' : 'blue'}">Some text</div>
+
+<div [ngClass]="{'purple': isAdmin, 'red':!isAdmin}">3 some text</div>
+<div [ngClass]="styles">array styles</div>
+
+<!-- https://angular.dev/api/common/DatePipe -->
+<p>Current date is: {{ currentDate | date : 'shortDate' }}</p>
