@@ -8,6 +8,7 @@ import {
   NgSwitchCase,
   NgSwitchDefault, SlicePipe
 } from '@angular/common';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import {
     NgSwitchDefault,
     NgClass,
     DatePipe,
-    SlicePipe
+    SlicePipe,
+    RouterOutlet
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
