@@ -1,0 +1,13 @@
+<p>{{ parentName }}</p>
+
+<app-child
+  name="Parent counter"
+  [counterValue]="startCount"
+  [step]="stepValue"
+  (inputChange)="handleInputChange($event)"
+  (countChange)="handleCounterChange($event)"
+>
+
+</app-child>
+
+<p>Parent counter: {{ parentCounter }}</p>
