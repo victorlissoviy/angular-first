@@ -1,7 +1,5 @@
-<div>
-  <p>Counter name: {{ name }}</p>
-  <p>Counter value: {{ counterValue }}</p>
-  <input type="text" (input)="onInputChange($event)">
+<div [class.red]="isRed">
+  <span>Text span</span>
 </div>
 
-<button (click)="increment()">Increment counter</button>
+<button (click)="changeColor()">change Color</button>

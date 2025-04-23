@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ChildComponent} from '../child/child.component';
 
 @Component({
@@ -10,16 +10,21 @@ import {ChildComponent} from '../child/child.component';
   styleUrl: './parent.component.scss'
 })
 export class ParentComponent {
-  parentName: string = "Parent Name";
-  parentCounter: number = 100;
-  startCount: number = 3;
-  stepValue: number = 5;
 
-  handleInputChange(value:string) {
-    this.parentName = value;
+  @ViewChild('child') childComponent: ChildComponent | undefined
+  @ViewChild('parentInput') inputValue: ElementRef | undefined;
+
+  currentText: string = "Default Text";
+
+  changeChildColor() {
+    this.childComponent?.changeColor();
   }
 
-  handleCounterChange(value:number) {
-    this.parentCounter = value;
+  updateText() {
+    this.currentText = this.inputValue?.nativeElement.value;
+  }
+
+  takeFokus() {
+    this.inputValue?.nativeElement.focus();
   }
 }
