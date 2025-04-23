@@ -1,5 +1,3 @@
-<div>
-  <ng-content></ng-content>
-  <button (click)="changeText()">Change Text</button>
-  <button (click)="changeGrandChildColor()">Change Color</button>
-</div>
+<p>{{ value }}</p>
+
+<app-grand-child [value]="value"></app-grand-child>

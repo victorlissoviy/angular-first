@@ -1,3 +1,8 @@
-<h1>Angular component</h1>
+<app-child
+  *ngIf="show"
+  [value]="parentValue" >
+</app-child>
 
-<app-parent></app-parent>
+<input type="text" (input)="onInputchange($event)" />
+
+<button (click)="show = !show" >show</button>

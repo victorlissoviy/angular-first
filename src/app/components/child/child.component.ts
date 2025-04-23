@@ -1,32 +1,66 @@
 import {
   Component,
-  ContentChild,
-  ContentChildren,
-  ElementRef, QueryList
+  OnInit,
+  Input,
+  OnDestroy,
+  OnChanges,
+  SimpleChanges,
+  DoCheck,
+  AfterViewInit,
+  AfterViewChecked,
+  AfterContentInit,
+  AfterContentChecked
 } from '@angular/core';
-import {GranChildComponent} from '../gran-child/gran-child.component';
+import {GrandChildComponent} from '../grand-child/grand-child.component';
 
 @Component({
   selector: 'app-child',
-  imports: [],
+  imports: [
+    GrandChildComponent
+  ],
   templateUrl: './child.component.html',
   styleUrl: './child.component.scss'
 })
-export class ChildComponent {
+export class ChildComponent
+  implements OnInit, OnDestroy, OnChanges, DoCheck, AfterViewInit,
+    AfterViewChecked, AfterContentInit, AfterContentChecked {
 
-  @ContentChild('element') element: ElementRef | undefined;
+  @Input() value: string = '';
 
-  @ContentChildren(GranChildComponent)
-  granChild: QueryList<GranChildComponent> | undefined;
-
-  changeText() {
-    if (this.element != null) {
-      this.element.nativeElement.innerHTML = "Changed from content child";
-    }
+  constructor() {
+    console.log("child Constructor", this.value);
   }
 
-  changeGrandChildColor() {
-    this.granChild?.forEach(grandChild =>
-      grandChild.changeColor());
+  ngAfterContentChecked(): void {
+    console.log("ngAfterContentChecked", this.value);
+  }
+
+  ngAfterContentInit(): void {
+    console.log("ngAfterContentInit", this.value);
+  }
+
+  ngAfterViewChecked(): void {
+    console.log("ngAfterViewChecked", this.value);
+  }
+
+  ngAfterViewInit(): void {
+    console.log("ngAfterViewInit", this.value);
+  }
+
+  ngDoCheck(): void {
+    console.log("ngDoCheck", this.value);
+  }
+
+  ngOnInit() {
+    console.log("ngOnInit", this.value);
+  }
+
+  ngOnDestroy() {
+    console.log("ngOnDestroy", this.value);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log("CHANGES", changes);
+    console.log("ngOnChanges", this.value);
   }
 }
