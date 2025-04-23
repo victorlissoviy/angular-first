@@ -1,9 +1,10 @@
-<app-child #child></app-child>
-<app-child #child></app-child>
-<app-child ></app-child>
-<app-child #child></app-child>
-<app-child ></app-child>
+<app-child>
+  <p #element>{{ parentText }}</p>
+</app-child>
 
-<div>
-  <button (click)="changeColor()" >Change Color</button>
-</div>
+<app-child>
+  <app-gran-child></app-gran-child>
+  <app-gran-child></app-gran-child>
+  <app-gran-child></app-gran-child>
+  <app-gran-child></app-gran-child>
+</app-child>

@@ -1,4 +1,10 @@
-import {Component} from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  ContentChildren,
+  ElementRef, QueryList
+} from '@angular/core';
+import {GranChildComponent} from '../gran-child/gran-child.component';
 
 @Component({
   selector: 'app-child',
@@ -8,9 +14,19 @@ import {Component} from '@angular/core';
 })
 export class ChildComponent {
 
-  isRed:boolean = false;
+  @ContentChild('element') element: ElementRef | undefined;
 
-  changeColor() {
-    this.isRed = !this.isRed;
+  @ContentChildren(GranChildComponent)
+  granChild: QueryList<GranChildComponent> | undefined;
+
+  changeText() {
+    if (this.element != null) {
+      this.element.nativeElement.innerHTML = "Changed from content child";
+    }
+  }
+
+  changeGrandChildColor() {
+    this.granChild?.forEach(grandChild =>
+      grandChild.changeColor());
   }
 }
