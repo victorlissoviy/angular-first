@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, QueryList, ViewChildren} from '@angular/core';
 import {ChildComponent} from '../child/child.component';
 
 @Component({
@@ -11,20 +11,9 @@ import {ChildComponent} from '../child/child.component';
 })
 export class ParentComponent {
 
-  @ViewChild('child') childComponent: ChildComponent | undefined
-  @ViewChild('parentInput') inputValue: ElementRef | undefined;
+  @ViewChildren('child') childList: QueryList<ChildComponent> | undefined;
 
-  currentText: string = "Default Text";
-
-  changeChildColor() {
-    this.childComponent?.changeColor();
-  }
-
-  updateText() {
-    this.currentText = this.inputValue?.nativeElement.value;
-  }
-
-  takeFokus() {
-    this.inputValue?.nativeElement.focus();
+  changeColor() {
+    this.childList?.forEach(child => child.changeColor());
   }
 }

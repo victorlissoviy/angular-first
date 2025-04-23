@@ -1,19 +1,9 @@
 <app-child #child></app-child>
+<app-child #child></app-child>
+<app-child ></app-child>
+<app-child #child></app-child>
+<app-child ></app-child>
 
 <div>
-  <button (click)="child.changeColor()">Change color in child component</button>
+  <button (click)="changeColor()" >Change Color</button>
 </div>
-
-<div>
-  <button (click)="changeChildColor()">Change color in child viewChild</button>
-</div>
-
-<input #parentInput type="text">
-
-<p>{{ currentText }}</p>
-
-<div>
-  <button (click)="updateText()" >Change Text</button>
-  <button (click)="takeFokus()" >Take focus</button>
-</div>
-
